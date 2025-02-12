@@ -13,9 +13,13 @@ import java.util.List;
 @Repository
 public interface ClaimRepository extends JpaRepository<Claim, Long>{
 
+<<<<<<< HEAD
     List<Claim> findByPolicyholder(Policyholder policyholder);
 
      List<Claim> findByUnderwriter(Underwriter underwriter);
+=======
+    
+>>>>>>> 998aacb40a49e653415d5af46cfd3a4ee93750b2
 
     @Query("SELECT c FROM Claim c WHERE c.policyholder.id = :policyholderId")
     List<Claim> getClaimsByPolicyholder(@Param("policyholderId") Long policyholderId);

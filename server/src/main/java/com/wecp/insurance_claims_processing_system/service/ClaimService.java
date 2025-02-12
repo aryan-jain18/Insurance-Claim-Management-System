@@ -12,8 +12,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
+<<<<<<< HEAD
 
 import java.security.Policy;
+=======
+>>>>>>> 998aacb40a49e653415d5af46cfd3a4ee93750b2
 import java.util.List;
 import java.util.Optional;
 
@@ -43,12 +46,16 @@ public Claim submitClaim(Long policyholderId, Claim claim){
 
 
 public List<Claim> getClaimsByPolicyholder(Long policyholderId){
+<<<<<<< HEAD
 
     Policyholder ph = policyholderRepository.findById(policyholderId).get();
     List<Claim> claims = claimRepository.findByPolicyholder(ph);
     return claims;
 
     // return claimRepository.findAll();
+=======
+    return claimRepository.findAll();
+>>>>>>> 998aacb40a49e653415d5af46cfd3a4ee93750b2
 }
 
 //Till here policyholdercontroller
@@ -73,11 +80,15 @@ public List<Underwriter> getAllUnderwriters(){
 
 public List<Claim> getAllClaimsForReview(Long underwriterId){
 
+<<<<<<< HEAD
     Underwriter uw = underwriterRepository.findById(underwriterId).get();
     List<Claim> claims = claimRepository.findByUnderwriter(uw);
     return claims;
 
     // return claimRepository.findAll();
+=======
+    return claimRepository.findAll();
+>>>>>>> 998aacb40a49e653415d5af46cfd3a4ee93750b2
 
 }
 

@@ -2,9 +2,12 @@ package com.wecp.insurance_claims_processing_system.entity;
 
 
 import javax.persistence.*;
+<<<<<<< HEAD
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+=======
+>>>>>>> 998aacb40a49e653415d5af46cfd3a4ee93750b2
 import java.util.Date;
 
 @Entity
@@ -18,6 +21,7 @@ public class Claim {
     private String status;
 
     @ManyToOne
+<<<<<<< HEAD
     @JoinColumn(name = "policyholder_id")
     private Policyholder policyholder;
 
@@ -31,6 +35,17 @@ public class Claim {
 
     @OneToOne(mappedBy = "claim")
     @JsonIgnore
+=======
+    private Policyholder policyholder;
+
+    @ManyToOne
+    private Adjuster adjuster;
+
+    @ManyToOne
+    private Underwriter underwriter;
+
+    @OneToOne
+>>>>>>> 998aacb40a49e653415d5af46cfd3a4ee93750b2
     private Investigation investigation;
 
 

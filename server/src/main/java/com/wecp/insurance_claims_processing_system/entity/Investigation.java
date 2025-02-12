@@ -11,8 +11,12 @@ public class Investigation {
     private String report;
     private String status;
 
+<<<<<<< HEAD
     @OneToOne
     @JoinColumn(name = "claim_id")
+=======
+    @OneToOne(mappedBy = "investigation")
+>>>>>>> 998aacb40a49e653415d5af46cfd3a4ee93750b2
     private Claim claim;
 
     public Investigation() {

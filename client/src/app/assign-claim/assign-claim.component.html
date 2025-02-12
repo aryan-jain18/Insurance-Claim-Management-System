@@ -6,7 +6,11 @@
        <label for="claimId">Select Claim</label>
        <select id="claimId" formControlName="claimId" class="form-control">
          <option value="">Select a claim</option>
+<<<<<<< HEAD
          <option *ngFor="let claim of claimList" [value]="claim.id">
+=======
+         <option *ngFor="let claim of claims" [value]="claim.id">
+>>>>>>> 998aacb40a49e653415d5af46cfd3a4ee93750b2
            {{claim.name || claim.id}} <!-- Adjust based on your claim object structure -->
          </option>
        </select>
@@ -28,7 +32,11 @@
        </div>
      </div>
   
+<<<<<<< HEAD
      <button type="submit" [disabled]="itemForm.invalid" class="submit-button">
+=======
+     <button type="submit" [disabled]="!itemForm.valid" class="submit-button">
+>>>>>>> 998aacb40a49e653415d5af46cfd3a4ee93750b2
        Assign Claim
      </button>
    </form>

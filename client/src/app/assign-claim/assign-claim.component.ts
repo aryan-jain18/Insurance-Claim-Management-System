@@ -14,11 +14,19 @@
  export class AssignClaimComponent implements OnInit {
   
       itemForm:FormGroup;
+<<<<<<< HEAD
        claimList: any[] = [];
         underwriters: any[] = [];
          constructor(private formBuilder: FormBuilder,    private httpService: HttpService,    private authService: AuthService,    private router: Router  ) {    
            this.itemForm = this.formBuilder.group({      
              claimId: [null, Validators.required],      
+=======
+       claims: any[] = [];
+        underwriters: any[] = [];
+         constructor(private formBuilder: FormBuilder,    private httpService: HttpService,    private authService: AuthService,    private router: Router  ) {    
+           this.itemForm = this.formBuilder.group({      
+             claimId: ['', Validators.required],      
+>>>>>>> 998aacb40a49e653415d5af46cfd3a4ee93750b2
              underwriterId: ['', Validators.required]  
             });  
            }
@@ -29,7 +37,11 @@
           
              loadClaims() {
                this.httpService.getAllClaims().subscribe(claims => {
+<<<<<<< HEAD
                  this.claimList = claims;
+=======
+                 this.claims = claims;
+>>>>>>> 998aacb40a49e653415d5af46cfd3a4ee93750b2
                });
              }
           
