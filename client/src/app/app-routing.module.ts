@@ -19,6 +19,7 @@ import { CreateInvestigatorComponent } from './create-investigator/create-invest
 import { UpdateClaimInvestigatorComponent } from './update-claim-investigator/update-claim-investigator.component';
 
 
+
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'registration', component: RegistrationComponent },

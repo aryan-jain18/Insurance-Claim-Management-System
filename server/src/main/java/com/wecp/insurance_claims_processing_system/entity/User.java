@@ -6,10 +6,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "users") // do not change table name
-<<<<<<< HEAD
 @Inheritance(strategy = InheritanceType.JOINED)
-=======
->>>>>>> 998aacb40a49e653415d5af46cfd3a4ee93750b2
 public class User {
 
     @Id
@@ -58,11 +55,7 @@ public class User {
     public void setRole(String role) {
         this.role = role;
     }
-<<<<<<< HEAD
     
-=======
-
->>>>>>> 998aacb40a49e653415d5af46cfd3a4ee93750b2
     
 
 

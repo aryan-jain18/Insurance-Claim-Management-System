@@ -1,9 +1,10 @@
-   import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
  import { FormBuilder, FormGroup, Validators } from '@angular/forms';
  import { Router } from '@angular/router';
  import { HttpService } from '../../services/http.service';
  import { AuthService } from '../../services/auth.service';
-  
+import { catchError, of, tap } from 'rxjs';
+ 
  @Component({
    selector: 'app-login',
    templateUrl: './login.component.html',
@@ -11,7 +12,9 @@
  })
  export class LoginComponent implements OnInit {
    itemForm: FormGroup;
-  
+   errorMessage: any
+   showError : boolean = false;
+ 
    constructor(
      private formBuilder: FormBuilder,
      private httpService: HttpService,
@@ -23,30 +26,42 @@
        password: ['', Validators.required]
      });
    }
-  
+ 
    ngOnInit() {
      // Any initialization logic if needed
    }
-  
-   onSubmit() {
-     if (this.itemForm.valid) {
-       this.httpService.Login(this.itemForm.value).subscribe({
-         next: (response) => {
-           // Handle successful login
-           this.router.navigate(['/dashboard']);
-         },
-         error: (error) => {
-           console.error('Login error:', error);
-         }
-       });
-     }
-   }
-  
-   onSignUp(){
-     this.router.navigate(['/registration'])
-   }
-  
-   onCreate(){
-     this.router.navigate(['/create-claim'])
-   }
+ 
+
+  onSubmit(){
+
+    if(this.itemForm.valid){
+      this.showError = false;
+      this.httpService.Login(this.itemForm.value).subscribe((data:any) => {
+        if(data.userId != 0) {
+          this.authService.SetRole(data.role)
+          this.authService.saveToken(data.token)
+          this.authService.saveUserId(data.userId);
+          this.router.navigate(['/dashboard'])
+          setTimeout(() => {
+            window.location.reload();
+          }, 1000);
+        }else{
+          this.showError = true;
+          this.errorMessage = "Wrong Username or Password";
+        }
+      }, error => {
+        this.showError = true;
+        this.errorMessage = "An error Occured While login. Please try again"
+      })
+ 
+ 
+}
+else{
+  this.itemForm.markAllAsTouched()
+}
+ } 
+
+ onSignUp(){
+  this.router.navigate(['/registration'])
  }
+}

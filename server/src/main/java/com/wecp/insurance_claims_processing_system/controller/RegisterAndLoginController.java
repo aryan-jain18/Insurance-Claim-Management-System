@@ -39,11 +39,7 @@ public class RegisterAndLoginController {
     @PostMapping("/api/user/register")
     public ResponseEntity<?> registerUser(@RequestBody User user) {
         try{
-<<<<<<< HEAD
             return ResponseEntity.ok(userService.registerUser(user));
-=======
-            return ResponseEntity.ok(userService.createUser(user));
->>>>>>> 998aacb40a49e653415d5af46cfd3a4ee93750b2
         } catch(Exception ex) {
             return new ResponseEntity<>(ex.getMessage() , HttpStatus.CONFLICT);
         }
@@ -66,17 +62,10 @@ public class RegisterAndLoginController {
             String username=foundUser.getUsername();
             String email=foundUser.getEmail();
             System.out.println("User Roles: " + role);
-<<<<<<< HEAD
             return ResponseEntity.ok(new LoginResponse(userId, token, username, email, role));
         }
     
      
-=======
-            return ResponseEntity.ok(new LoginResponse(userId, role, token, username, email));
-        }
-    
-    
->>>>>>> 998aacb40a49e653415d5af46cfd3a4ee93750b2
 }
 
 

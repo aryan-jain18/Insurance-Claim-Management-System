@@ -35,7 +35,7 @@ export class HttpService {
      
     }
    
-    GetAllUnderwriter():Observable<any>{
+    getAllUnderwriter():Observable<any>{
  
       const authToken = this.authService.getToken();
       let headers = new HttpHeaders();
@@ -115,7 +115,7 @@ export class HttpService {
     let headers=new HttpHeaders();
     headers=headers.set('Content-Type','application/json');
     headers=headers.set('Authorization',`Bearer ${authToken}`);
-    return this.http.put(this.serverName+'/api/adjuster/claim/'+details.claimId+' /assign?unserwriterId='+
+    return this.http.put(this.serverName+'/api/adjuster/claim/'+details.claimId+' /assign?underwriterId='+
     details.underwriterId,details,{headers:headers});
 
   }

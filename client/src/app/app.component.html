@@ -23,10 +23,10 @@
       <li class="nav-item">
         <a class="nav-link" *ngIf="roleName === 'UNDERWRITER'" [routerLink]="['/update-claim-investigator']">Update Claim</a>
       </li> 
-
+<!-- 
       <li class="nav-item">
         <a class="nav-link" *ngIf="roleName === 'POLICYHOLDER'" [routerLink]="['/view-claim-status']">View Claim Status</a>
-      </li>
+      </li> --> 
      
     </ul>
    
@@ -36,7 +36,7 @@
       <li *ngIf="!IsLoggin" class="nav-item">
         <a class="nav-link" [routerLink]="['/login']">Login</a>
       </li>
-      <li *ngIf="IsLoggin" class="nav-item">
+      <li class="nav-item">
         <a class="nav-link" (click)="logout()" [routerLink]="['/login']">Logout</a>
       </li>
     </ul>

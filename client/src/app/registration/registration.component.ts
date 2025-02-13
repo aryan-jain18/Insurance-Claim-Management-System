@@ -32,9 +32,9 @@
   
    onSubmit() {
 
-    console.log("call method");
+    
      if (this.itemForm.valid) {
-      // console.log('HI')
+   
        this.httpService.registerUser(this.itemForm.value).subscribe({
          next: () => {
            this.router.navigate(['/login']);

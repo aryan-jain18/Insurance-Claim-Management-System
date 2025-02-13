@@ -1,6 +1,6 @@
   <div class="container">
    <h2>Create Investigation Report</h2>
-  
+ 
    <form [formGroup]="itemForm" (ngSubmit)="onSubmit()">
      <div class="form-group">
        <label for="report">Investigation Report</label>
@@ -15,7 +15,7 @@
          Please enter the investigation report
        </div>
      </div>
-  
+ 
      <div class="form-group">
        <label for="status">Status</label>
        <select id="status" formControlName="status" class="form-control">
@@ -28,7 +28,7 @@
          Please select a status
        </div>
      </div>
-  
+ 
      <button type="submit" [disabled]="!itemForm.valid" class="submit-button">
        Create Investigation
      </button>

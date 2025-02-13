@@ -40,6 +40,10 @@
     this.token= localStorage.getItem('token');
      return this.token;
    }
+
+   getUserId():string|null{
+    return localStorage.getItem('userId');
+   }
   
    logout(){
      localStorage.removeItem('token');
@@ -48,7 +52,6 @@
       this.isLoggedIn=false
     }
     saveUserId(userid: string) {
-  
      localStorage.setItem('userId',userid);
    }
  }
