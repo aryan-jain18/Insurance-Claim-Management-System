@@ -16,7 +16,8 @@ import { CreateClaimComponent } from './create-claim/create-claim.component';
 import { UpdateClaimComponent } from './update-claim/update-claim.component';
 import { AssignClaimComponent } from './assign-claim/assign-claim.component';
 import { CreateInvestigatorComponent } from './create-investigator/create-investigator.component';
-import { UpdateClaimInvestigatorComponent } from './update-claim-investigator/update-claim-investigator.component';
+import { UpdateClaimUnderwriterrComponent} from './update-claim-underwriter/update-claim-underwriter.component';
+import { UpdateInvestigationComponent } from './update-investigation/update-investigation/update-investigation.component';
 
 
 
@@ -25,13 +26,14 @@ const routes: Routes = [
   { path: 'registration', component: RegistrationComponent },
   { path: 'dashboard', component: DashbaordComponent },
   { path: 'create-claim', component: CreateClaimComponent },  
-  { path: 'update-claim', component: UpdateClaimComponent },  
-  { path: 'assign-claim', component: AssignClaimComponent },  
+  { path: 'update-claim/:id', component: UpdateClaimComponent },  
+  { path: 'assign-claim/:id', component: AssignClaimComponent },  
   { path: 'create-investigator', component: CreateInvestigatorComponent },  
-  { path: 'update-claim-investigator', component: UpdateClaimInvestigatorComponent },  
+  { path: 'update-claim-investigator/:id', component: UpdateClaimUnderwriterrComponent },  
+  {path: 'update-investigation/:id', component:UpdateInvestigationComponent},
 
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
-
+ 
   { path: '**', redirectTo: '/dashboard', pathMatch: 'full' },
 ];
 

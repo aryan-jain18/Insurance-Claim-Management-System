@@ -1,4 +1,4 @@
-   
+  import { Underwriter } from '../model/Underwriter';
  import { Component, OnInit } from '@angular/core';
  import { FormBuilder, FormGroup, Validators } from '@angular/forms';
  import { HttpService } from '../../services/http.service';
@@ -15,11 +15,11 @@
   
       itemForm:FormGroup;
        claimList: any[] = [];
-        underwriters: any[] = [];
+        underwriters: Underwriter[] = []
          constructor(private formBuilder: FormBuilder,    private httpService: HttpService,    private authService: AuthService,    private router: Router  ) {    
            this.itemForm = this.formBuilder.group({      
              claimId: [null, Validators.required],      
-             underwriterId: ['', Validators.required]  
+             underwriterId: [null, Validators.required]  
             });  
            }
            ngOnInit() {
@@ -40,7 +40,7 @@
              }
             onSubmit() {
                if (this.itemForm.valid) {
-                 this.httpService.getClaimsByUnderwriter(this.itemForm.value).subscribe({
+                 this.httpService.assignClaim(this.itemForm.value).subscribe({
                    next: () => {
                      // Handle successful assignment
                      this.router.navigate(['/claims']); // Adjust route as needed

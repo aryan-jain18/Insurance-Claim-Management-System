@@ -1,8 +1,118 @@
 <div class="dashboard-container">
  <header class="dashboard-header">
- <h1>Insurance Claims Management Dashboard</h1>
+ <h1 *ngIf="role === 'POLICYHOLDER'" >WELCOME POLICYHOLDER</h1>
+ <h1 *ngIf="role === 'ADJUSTER'" >WELCOME ADJUSTER</h1>
+ <h1 *ngIf="role === 'UNDERWRITER'" >WELCOME UNDERWRITER</h1>
+ <h1 *ngIf="role === 'INVESTIGATOR'" >WELCOME INVESTIGATOR</h1>
  </header>
  
+
+ <div *ngIf="role === 'ADJUSTER'">
+<table>
+ <thead>
+ <tr>
+ <th>ID</th>
+ <th>Description</th>
+ <th>Date</th>
+ <th>Status</th>
+ <th colspan="2">Action</th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr *ngFor="let claim of claimList">
+ <td>{{claim.id}}</td>
+ <td>{{claim.description}}</td>
+ <td>{{claim.date | date : 'yyyy-MM-dd'}}</td>
+ <td>{{claim.status}}</td>
+ <td>
+      <button type="button" (click)="onAdjusterAssignClaim(claim.id)">Assign Claim</button>
+ </td>
+ </tr>
+ </tbody>
+ </table>
+ </div>
+
+
+<div *ngIf="role === 'UNDERWRITER'"> 
+<table>
+ <thead>
+ <tr>
+ <th>ID</th>
+ <th>Description</th>
+ <th>Date</th>
+ <th>Status</th>
+ <th colspan="1">Action</th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr *ngFor="let claim of claimByUnderwriter">
+ <td>{{claim.id}}</td>
+ <td>{{claim.description}}</td>
+ <td>{{claim.date | date: 'yyyy-MM-dd'}}</td>
+ <td>{{claim.status}}</td>
+ <td>
+      <button type="button" (click)="onUnderwriterUpdateClaim(claim.id)">Update Claim</button>
+ </td>
+ </tr>
+ </tbody>
+ </table>
+ </div>
+
+
+ <div *ngIf="role === 'INVESTIGATOR'"> 
+
+      <table>
+            <thead>
+                  <tr>
+                  <th>ID</th>
+                  <th>Report</th>
+                  <th>Status</th>
+                  <th colspan="1">Update</th>
+                  </tr>
+                  </thead> 
+                  <tbody>
+                        <tr *ngFor="let investigation of investigations">
+                        <td>{{investigation.id}}</td>
+                        <td>{{investigation.report}}</td>
+                        <td>{{investigation.status}}</td>
+                        <td>
+                             <button type="button" (click)="onInvestigatorUpdateInvestigation(investigation.id)">Update</button>
+                        </td>
+                        </tr>
+                        </tbody>
+      </table>
+
+ </div>
+
+
+ <div *ngIf="role === 'POLICYHOLDER'">
+
+       <div class="container">
+         <table>
+           <thead>
+             <tr>
+               <th>Description</th>
+               <th>Date</th>
+               <th>Status</th>
+             </tr>
+           </thead>
+           <tbody>
+             <tr *ngFor="let claim of claimByPolicyholder">
+               <td>{{claim.description}}</td>
+               <td>{{claim.date | date: 'yyyy-MM-dd'}}</td>
+               <td>{{claim.status}}</td>
+             </tr>
+           </tbody>
+         </table>
+       </div>
+
+
+
+
+ </div>
+
+
+
    <!-- <div class="dashboard-actions">
       <div *ngIf="role === 'POLICYHOLDER'">
  <button type="button" (click)="navigateToCreateClaim()" class="action-button">

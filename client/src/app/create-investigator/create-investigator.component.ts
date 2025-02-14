@@ -4,6 +4,7 @@
  import { Router } from '@angular/router';
  import { AuthService } from '../../services/auth.service';
  import { HttpService } from '../../services/http.service';
+import { Claim } from '../model/Claim';
  
  @Component({
    selector: 'app-create-investigator',
@@ -13,6 +14,7 @@
  
  export class CreateInvestigatorComponent implements OnInit {
    itemForm: FormGroup;
+   claimList: Claim[] = [];
  
    constructor(
      private formBuilder: FormBuilder,
@@ -27,8 +29,15 @@
    }
  
    ngOnInit() {
-     // Load any initial data if needed
+    // this.loadClaims();
    }
+
+
+  //  loadClaims() {
+  //   this.httpService.getAllClaimsI().subscribe((claims) => {
+  //     this.claimList = claims;
+  //   });
+  // }
   
    onSubmit() {
      if (this.itemForm.valid) {

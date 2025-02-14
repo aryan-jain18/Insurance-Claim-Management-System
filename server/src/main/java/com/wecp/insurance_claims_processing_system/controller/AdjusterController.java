@@ -53,6 +53,11 @@ public class AdjusterController {
 
     }
 
+    @GetMapping("/api/adjuster/claim/{claimId}")
+    public Claim getClaimById(@PathVariable Long claimId) {
+        return claimService.getClaimById(claimId);
+    }
+
 
 
 

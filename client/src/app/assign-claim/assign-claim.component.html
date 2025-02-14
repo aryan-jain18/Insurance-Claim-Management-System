@@ -7,7 +7,7 @@
        <select id="claimId" formControlName="claimId" class="form-control">
          <option value="">Select a claim</option>
          <option *ngFor="let claim of claimList" [value]="claim.id">
-           {{claim.name || claim.id}} <!-- Adjust based on your claim object structure -->
+           {{claim.name || claim.id}} 
          </option>
        </select>
        <div *ngIf="itemForm.get('claimId')?.touched && itemForm.get('claimId')?.invalid" class="error-message">
@@ -20,7 +20,7 @@
        <select id="underwriterId" formControlName="underwriterId" class="form-control">
          <option value="">Select an underwriter</option>
          <option *ngFor="let underwriter of underwriters" [value]="underwriter.id">
-           {{underwriter.name}} <!-- Adjust based on your underwriter object structure -->
+           {{underwriter.id}} 
          </option>
        </select>
        <div *ngIf="itemForm.get('underwriterId')?.touched && itemForm.get('underwriterId')?.invalid" class="error-message">
@@ -33,3 +33,6 @@
      </button>
    </form>
  </div>
+
+
+

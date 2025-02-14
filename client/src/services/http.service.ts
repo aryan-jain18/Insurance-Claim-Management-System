@@ -34,6 +34,7 @@ export class HttpService {
       return this.http.get(this.serverName + `/api/adjuster/claims`, {headers:headers});
      
     }
+
    
     getAllUnderwriter():Observable<any>{
  
@@ -53,12 +54,12 @@ export class HttpService {
       return this.http.get(this.serverName + `/api/underwriter/claims?underwriterId=` + id, {headers:headers});
     }
    
-    getClaimsByPolicyholder(policyholder: any):Observable<any>{
+    getClaimsByPolicyholder(policyholderId: any):Observable<any>{
       const authToken = this.authService.getToken();
       let headers = new HttpHeaders();
       headers = headers.set('Content-Type', 'application/json');
       headers = headers.set('Authorization', `Bearer ${authToken}`)
-          return this.http.get(this.serverName + `/api/policyholder/claims?policyholderId=` +policyholder, {headers:headers});
+          return this.http.get(this.serverName + `/api/policyholder/claims?policyholderId=` +policyholderId, {headers:headers});
     }
    
     updateInvestigation(details:any,investigationId:any):Observable<any>{
@@ -89,6 +90,23 @@ export class HttpService {
      
     }
 
+    getClaimById(claimId:any) : Observable<any> {
+      const authToken = this.authService.getToken();
+      let headers = new HttpHeaders();
+      headers = headers.set('Content-Type', 'application/json');
+      headers = headers.set('Authorization', `Bearer ${authToken}`);
+      return this.http.get(this.serverName + '/api/adjuster/claim/' +claimId, {headers:headers})
+    }
+
+
+    getInvestigationById(id:any) : Observable<any>{
+      const authToken = this.authService.getToken();
+      let headers = new HttpHeaders();
+      headers = headers.set('Content-Type', 'application/json');
+      headers = headers.set('Authorization', `Bearer ${authToken}`);
+      return this.http.get(this.serverName + "/api/investigator/investigations/" +id , {headers:headers})
+    }
+
        
   
   updateClaims(details:any, claimId:any):Observable<any>{
@@ -110,7 +128,7 @@ export class HttpService {
     });
   }
   
-  AssignClaim(details:any):Observable<any>{
+  assignClaim(details:any):Observable<any>{
     const authToken=this.authService.getToken();
     let headers=new HttpHeaders();
     headers=headers.set('Content-Type','application/json');

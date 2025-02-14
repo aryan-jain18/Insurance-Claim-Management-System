@@ -4,6 +4,7 @@
  import { HttpService } from '../../services/http.service';
  import { AuthService } from '../../services/auth.service';
  import { DashbaordComponent } from '../dashbaord/dashbaord.component';
+import { Claim } from '../model/Claim';
   
   
  @Component({
@@ -13,6 +14,7 @@
  })
  export class CreateClaimComponent implements OnInit {
    itemForm: FormGroup;
+   claimList: Claim[] = []
    policyholderId: string | null ='';
   
    constructor(
@@ -31,15 +33,22 @@
   
    ngOnInit() {
     this.policyholderId = this.authService.getUserId();
+  // //  this.httpService.getClaimsByPolicyholder(this.policyholderId).subscribe((data)=>{
+  // //   this.claimList = data
+  //  })
+    }
      
-   }
+   
   
    onSubmit() {
      if (this.itemForm.valid) {
        // This should be dynamically set based on your application's needs
        this.httpService.createClaims(this.itemForm.value, this.policyholderId).subscribe({
+
          next: () => {
-           this.router.navigate(['/claims']);
+              
+              this.router.navigate(['/dashboard'])
+              // this.router.navigate(['/create-claim'])
          },
          error: (error) => {
            console.error('Error creating claim:', error);

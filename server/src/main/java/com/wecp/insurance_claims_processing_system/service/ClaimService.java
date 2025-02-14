@@ -107,4 +107,9 @@ public Claim reviewClaim(Long id, String status){
         }
  }
 
+ public Claim getClaimById(Long claimId){
+    Claim claim = claimRepository.findById(claimId).get();
+    return claim;
+ }
+
 }

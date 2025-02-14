@@ -29,13 +29,21 @@
          Password is required
        </div>
      </div>
+     <div *ngIf="showError" class="error-message">
+        Check Username and Password.
+     </div><br>
   
      <button type="submit" [disabled]="!itemForm.valid" class="submit-button">
        Login
      </button>
-     <button type="button" (click)="onSignUp()">Signup</button>
+     
+     <div class="sign">
+     <p>
+      Don't have an account
+      <a routerLink="/registration"> Sign Up</a>
+    </p>
   
-    
+     </div>
   
    </form>
  </div>

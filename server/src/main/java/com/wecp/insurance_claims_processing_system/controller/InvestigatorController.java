@@ -1,5 +1,6 @@
 package com.wecp.insurance_claims_processing_system.controller;
 
+import com.wecp.insurance_claims_processing_system.entity.Claim;
 import com.wecp.insurance_claims_processing_system.entity.Investigation;
 import com.wecp.insurance_claims_processing_system.service.InvestigationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 // @RestController
 // public class InvestigatorController {
@@ -46,6 +48,12 @@ import java.util.List;
 @RequestMapping("/api/investigator")
 public class InvestigatorController {
 
+   
+    @GetMapping("/investigations/{id}")
+    public Investigation getdInvestigationById(Long id) {
+        return investigationService.getInvestigationById(id);
+    }
+
     @Autowired
     private InvestigationService investigationService;
 
@@ -66,4 +74,9 @@ public class InvestigatorController {
         List<Investigation> investigations = investigationService.findAllInvestigations();
         return ResponseEntity.ok(investigations);
     }
+
+    
+    
+
+
 }

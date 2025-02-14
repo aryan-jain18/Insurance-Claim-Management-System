@@ -48,6 +48,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/api/user/register", "/api/user/login").permitAll()
                 .antMatchers(HttpMethod.PUT, "/api/adjuster/claim").hasAuthority("ADJUSTER")
                 .antMatchers(HttpMethod.GET, "/api/adjuster/claims").hasAuthority("ADJUSTER")
+                .antMatchers(HttpMethod.GET, "/api/adjuster/claim/{claimId}").hasAuthority("ADJUSTER")
                 .antMatchers(HttpMethod.GET, "/api/adjuster/underwriters").hasAuthority("ADJUSTER")
                 .antMatchers(HttpMethod.PUT, "/api/adjuster/claim/{claimId}/assign").hasAuthority("ADJUSTER")
                 .antMatchers(HttpMethod.POST, "/api/policyholder/claim").hasAuthority("POLICYHOLDER")
@@ -55,6 +56,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.POST, "/api/investigator/investigation").hasAuthority("INVESTIGATOR")
                 .antMatchers(HttpMethod.PUT, "/api/investigator/investigation").hasAuthority("INVESTIGATOR")
                 .antMatchers(HttpMethod.GET, "/api/investigator/investigations").hasAuthority("INVESTIGATOR")
+                .antMatchers(HttpMethod.GET, "/api/investigator/investigations/{id}").hasAuthority("INVESTIGATOR")
                 .antMatchers(HttpMethod.GET, "/api/underwriter/claims").hasAuthority("UNDERWRITER")
                 .antMatchers(HttpMethod.PUT, "/api/underwriter/claim/{id}/review").hasAuthority("UNDERWRITER")
 

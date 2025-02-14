@@ -67,8 +67,9 @@ public class InvestigationService {
         return investigationRepository.findAll();
     }
 
-    public Optional<Investigation> findInvestigationById(Long id) {
-        return investigationRepository.findById(id);
+    public Investigation getInvestigationById(Long id) {
+        Investigation investigation = investigationRepository.findById(id).get();
+        return investigation;
     }
 
     public Investigation updateInvestigation(Long id, Investigation investigationDetails) {
@@ -78,4 +79,5 @@ public class InvestigationService {
             return investigationRepository.save(investigation);
         }).orElseThrow(() -> new IllegalArgumentException("Investigation not found"));
     }
+
 }

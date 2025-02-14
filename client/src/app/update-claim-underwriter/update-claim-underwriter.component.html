@@ -1,0 +1,20 @@
+ <form [formGroup]="itemForm" (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+        <label for="status">Status</label>
+        <select id="status" formControlName="status"  [(ngModel)]="status" class="form-control">
+          <option value="">Select status</option>
+          <option value="Pending">Pending</option>
+          <option value="In Progress">In Progress</option>
+          <option value="Completed">Completed</option>
+        </select>
+        <div *ngIf="itemForm.get('status')?.touched && itemForm.get('status')?.invalid" class="error-message">
+          Please select a status
+        </div>
+      </div>
+
+      <button type="submit" [disabled]="!itemForm.valid" class="submit-button">
+        Update Claim
+      </button>
+
+ </form>   
