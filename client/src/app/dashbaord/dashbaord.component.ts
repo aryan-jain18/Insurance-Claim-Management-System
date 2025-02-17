@@ -77,7 +77,6 @@ import { Investigation } from '../model/Investigation';
 
 
 
-
    onAdjusterAssignClaim(id:number){
     this.router.navigate([`/assign-claim/${id}`])
    }

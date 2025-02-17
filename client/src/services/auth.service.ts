@@ -14,11 +14,19 @@
   
    constructor() {}
   
+<<<<<<< HEAD
    // saving token received from login
    saveToken(token: string) {
      this.token = token;
      this.isLoggedIn = true;
      
+=======
+   // Method to save token received from login
+   saveToken(token: string) {
+     this.token = token;
+     this.isLoggedIn = true;
+     // Optionally, you can save the token to local storage or a cookie for persistence
+>>>>>>> dd88c0b0e892f36583fcf1876948aade019ff4e6
      localStorage.setItem('token', token);
    }
   
@@ -50,7 +58,10 @@
      localStorage.removeItem('role');
       this.token=null;
       this.isLoggedIn=false
+<<<<<<< HEAD
       window.location.reload()
+=======
+>>>>>>> dd88c0b0e892f36583fcf1876948aade019ff4e6
     }
     saveUserId(userid: string) {
      localStorage.setItem('userId',userid);

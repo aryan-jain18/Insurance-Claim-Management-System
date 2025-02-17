@@ -28,11 +28,19 @@ import { catchError, of, tap } from 'rxjs';
    }
  
    ngOnInit() {
+<<<<<<< HEAD
      
+=======
+     // Any initialization logic if needed
+>>>>>>> dd88c0b0e892f36583fcf1876948aade019ff4e6
    }
  
 
   onSubmit(){
+<<<<<<< HEAD
+=======
+
+>>>>>>> dd88c0b0e892f36583fcf1876948aade019ff4e6
     if(this.itemForm.valid){
       this.showError = false;
       this.httpService.Login(this.itemForm.value).subscribe((data:any) => {
@@ -63,4 +71,8 @@ else{
  onSignUp(){
   this.router.navigate(['/registration'])
  }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> dd88c0b0e892f36583fcf1876948aade019ff4e6

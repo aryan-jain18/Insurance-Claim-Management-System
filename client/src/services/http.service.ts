@@ -17,7 +17,12 @@ export class HttpService {
      }
     
     
+<<<<<<< HEAD
     getInvestigations():Observable<any>{
+=======
+    
+     getInvestigations():Observable<any>{
+>>>>>>> dd88c0b0e892f36583fcf1876948aade019ff4e6
          const authToken = this.authService.getToken();
          let headers = new HttpHeaders();
          headers = headers.set('Content-Type', 'application/json');
@@ -103,7 +108,11 @@ export class HttpService {
       let headers = new HttpHeaders();
       headers = headers.set('Content-Type', 'application/json');
       headers = headers.set('Authorization', `Bearer ${authToken}`);
+<<<<<<< HEAD
       return this.http.get(this.serverName + '/api/investigator/investigations/' +id , {headers:headers})
+=======
+      return this.http.get(this.serverName + "/api/investigator/investigations/" +id , {headers:headers})
+>>>>>>> dd88c0b0e892f36583fcf1876948aade019ff4e6
     }
 
        

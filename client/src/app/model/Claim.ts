@@ -1,6 +1,5 @@
 import { Investigation } from "./Investigation"
 
-
 export interface Claim {
     id : number
     description : string

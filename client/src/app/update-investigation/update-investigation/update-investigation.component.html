@@ -24,16 +24,38 @@
          <option value="Pending">Pending</option>
          <option value="In Progress">In Progress</option>
          <option value="Completed">Completed</option>
+<<<<<<< HEAD
          <option value="Rejected">Rejected</option>
+=======
+         <option value="Completed">Rejected </option>
+>>>>>>> dd88c0b0e892f36583fcf1876948aade019ff4e6
        </select>
        <div *ngIf="itemForm.get('status')?.touched && itemForm.get('status')?.invalid" class="error-message">
          Please select a status
        </div>
      </div>
+<<<<<<< HEAD
+=======
+     <!-- <div class="form-group">
+      <label for="claimId">Select Claim</label>
+      <select id="claimId" formControlName="claimId" class="form-control">
+        <option value="">Select a claim</option>
+        <option *ngFor="let claim of claimList" [value]="claim.id">
+          {{claim.id}} 
+        </option>
+      </select>
+      <div *ngIf="itemForm.get('claimId')?.touched && itemForm.get('claimId')?.invalid" class="error-message">
+        Please select a claim
+      </div>
+    </div> -->
+>>>>>>> dd88c0b0e892f36583fcf1876948aade019ff4e6
  
      <button type="submit" [disabled]="!itemForm.valid" class="submit-button">
        Update Investigation
      </button>
+<<<<<<< HEAD
      
+=======
+>>>>>>> dd88c0b0e892f36583fcf1876948aade019ff4e6
    </form>
  </div>
