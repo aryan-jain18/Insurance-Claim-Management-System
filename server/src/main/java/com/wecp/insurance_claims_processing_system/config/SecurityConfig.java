@@ -67,26 +67,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
     }
 
-    // @Bean
-    // public PasswordEncoder passwordEncoder() {
-    //     return new BCryptPasswordEncoder();
-    // }
-
-    // @Bean
-    // public UserDetailsService userDetailsService() {
-    // return new UserDetailsService();
-    // }
-
     @Bean
     public AuthenticationManager authenticationManagerBean() throws Exception {
         return super.authenticationManagerBean();
     }
 
 
-
-        // @Bean
-        // public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
-        //     return authenticationConfiguration.getAuthenticationManager();
-        // }
+ 
 
 }

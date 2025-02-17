@@ -12,6 +12,7 @@
  export class UpdateClaimComponent implements OnInit {
    itemForm: FormGroup;
    claimId : number | undefined
+   
   
    constructor(
      private formBuilder: FormBuilder,

@@ -52,6 +52,8 @@ public Claim updateClaim(Long id, Claim claimDetails){
 
     Claim c = claimRepository.findById(id).get();
     claimDetails.setId(c.getId());
+    claimDetails.setPolicyholder(c.getPolicyholder());
+    claimDetails.setInvestigation(c.getInvestigation());
     return claimRepository.save(claimDetails);
 
 }

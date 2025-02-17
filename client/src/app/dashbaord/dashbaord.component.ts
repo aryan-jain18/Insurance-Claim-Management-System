@@ -56,7 +56,7 @@ import { Investigation } from '../model/Investigation';
       this.httpService.getClaimsByUnderwriter(this.underWriterId).subscribe((data) => {
           this.claimByUnderwriter = data
           this.filteredClaimsByUnderwriter = this.claimByUnderwriter.filter((claim) => 
-          claim.status !== 'Approved By Underwriter' && claim.status !== 'Rejected By Underwriter')
+          claim.status !== 'Approved By Underwriter' && claim.status !== 'Rejected By Underwriter' )
       })
 
     }
@@ -74,6 +74,9 @@ import { Investigation } from '../model/Investigation';
       })
     }
    }
+
+
+
 
    onAdjusterAssignClaim(id:number){
     this.router.navigate([`/assign-claim/${id}`])
